@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            border: 1px solid black;
+            text-align: center;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <table>
+            <tr>
+                <td v-for="n1 in number1">
+                    <div v-for="n2 in number2">
+                        {{n1+1}} * {{n2}} = {{(n1+1)*n2}}
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                number1: 8,
+                number2: 9,
+            },
+            mehtods: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>
