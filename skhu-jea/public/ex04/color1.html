@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        div {
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 300px;
+            border: 1px solid #ccc;
+            box-shadow: 3px 3px 3px #aaa;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 40px auto;
+        }
+
+
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid gray;
+            font-size: 20pt;
+            text-align: center;
+            cursor: pointer;
+
+        }
+
+        td.yellow {
+            background-color: #ffa;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <table>
+            <tr v-for="n1 in size">
+                <td v-for="n2 in size" v-on:click="onClick(n1, n2)"
+                    v-bind:class="{ yellow: obj[(n1-1) * size + n2] }">
+                    {{(n1-1) * size + n2}}
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                size: 3,
+                obj: {}
+            },
+            methods: {
+                onClick(n1, n2) {
+                    Vue.set(this.obj, (n1-1) * this.size + n2, true);
+                },
+                
+            }
+        })
+    </script>
+</body>
+
+</html>
