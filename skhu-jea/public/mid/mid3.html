@@ -5,17 +5,31 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <style>
         div#app {
-            padding: 50px;
+            padding: 30px;
             margin: 30px auto;
-            max-width: 250px;
+            max-width: 500px;
             border: 1px solid #ccc;
             box-shadow: 3px 3px 3px #aaa;
-            text-align: center;
+        }
+
+        input {
+            padding: 3px;
         }
 
         button {
             padding: 3px;
             width: 80px;
+        }
+
+        div#hello {
+            margin-top: 20px;
+        }
+
+        span {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px 15px;
+            border: 1px solid black;
         }
     </style>
 </head>
@@ -23,11 +37,13 @@
 <body>
     <div id="app">
         <input type="text" v-model="number" />
-        <button type="button" v-on:click="visible = true" v-bind:disabled="visible">생성</button>
-        {{array}}
-        <span v-for="a in array">
-            {{a}}
-        </span>
+        <button type="button" v-on:click="createRandom">생성</button>
+       
+        <div id="hello">
+            <span v-for="a in array">
+                {{a}}
+            </span>
+        </div>
     </div>
     <script type="text/javascript">
         var app = new Vue({
@@ -38,7 +54,9 @@
             },
             methods: {
                 createRandom() {
-
+                    this.array = [];
+                    for (let i = 0; i < this.number; ++i)
+                        this.array.push(Math.floor(Math.random() * 10));
                 }
             }
 
