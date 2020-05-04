@@ -6,9 +6,7 @@ for (let i = 0; i < 3; ++i)
         age: i + 16
     })
 
-let persons2 = [];
-for (let i = 0; i < persons1.length; ++i)
-    persons2.push(Object.assign({}, persons1[i]));
+let persons2 = persons1;
 
 persons1[0].age = 20;
 console.log(persons1)
