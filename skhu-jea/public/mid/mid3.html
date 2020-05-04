@@ -10,6 +10,12 @@
             max-width: 250px;
             border: 1px solid #ccc;
             box-shadow: 3px 3px 3px #aaa;
+            text-align: center;
+        }
+
+        button {
+            padding: 3px;
+            width: 80px;
         }
     </style>
 </head>
@@ -17,15 +23,25 @@
 <body>
     <div id="app">
         <input type="text" v-model="number" />
-        <button type="button" v-on:click="number++">++</button>
-        <button type="button" v-on:click="number--">--</button>
+        <button type="button" v-on:click="visible = true" v-bind:disabled="visible">생성</button>
+        {{array}}
+        <span v-for="a in array">
+            {{a}}
+        </span>
     </div>
     <script type="text/javascript">
         var app = new Vue({
             el: '#app',
             data: {
-                number: 0
+                number: 0,
+                array: []
+            },
+            methods: {
+                createRandom() {
+
+                }
             }
+
         })
     </script>
 </body>
